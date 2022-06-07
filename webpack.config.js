@@ -10,6 +10,15 @@ module.exports = {
         exclude: /node_modules/,
         use: ['babel-loader'],
       },
+      // Webpack loader that evaluates styles during build time in Fluent UI React v9
+      // https://github.com/microsoft/griffel/tree/main/packages/webpack-loader
+      {
+        test: /\.styles.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: '@griffel/webpack-loader',
+        },
+      },
     ],
   },
   resolve: {
