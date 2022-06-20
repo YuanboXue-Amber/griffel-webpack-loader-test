@@ -3,7 +3,11 @@ import { useStyles } from './App.styles';
 
 const App = ({ title }) => {
   const classes = useStyles();
-  return <div className={classes.root}>{title}</div>;
+  return React.createElement(
+    'div',
+    { className: classes.root },
+    title
+  );
 };
 
 export default App;

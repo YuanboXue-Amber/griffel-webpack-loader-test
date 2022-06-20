@@ -6,7 +6,7 @@ import App from './App';
 const title = 'My Minimal React Webpack Babel Setup';
 
 ReactDOM.render(
-  <App title={title} />,
+  React.createElement(App, { title }),
   document.getElementById('app')
 );
 
