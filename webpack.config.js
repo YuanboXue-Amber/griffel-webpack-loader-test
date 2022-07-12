@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: path.resolve(__dirname, './src/index.js'),
@@ -20,13 +21,30 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, './dist'),
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
   },
   devServer: {
     static: path.resolve(__dirname, './dist'),
   },
   optimization: {
     minimize: false,
+
+    runtimeChunk: false,
+    /**
+     * See docs and defaults here. https://webpack.js.org/plugins/split-chunks-plugin/.
+     **/
+    splitChunks: {
+      chunks: 'all',
+      // /* Chunk splitting options. */
+      // minChunks: 1,
+      // maxAsyncRequests: 10,
+      // maxInitialRequests: 8,
+    },
   },
-  devtool: 'eval',
+  devtool: 'eval-cheap-module-source-map',
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './asset/index.html',
+    }),
+  ],
 };
