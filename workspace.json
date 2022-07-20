@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "@testscope/test1": "packages/test1",
+    "@testscope/test2": "packages/test2"
+  }
+}
